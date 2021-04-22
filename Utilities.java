@@ -67,7 +67,27 @@ public class Utilities {
 	
 	
 	//USER STORY 2:
-	
+	//USER STORY 2:
+	public Students studentsInterested() 
+	{
+		String sql = null;
+
+		try {
+			// create a Statement and an SQL string for the statement
+			sql = "SELECT CourseName, INTERESTED_IN1.CourseID, Count(*) AS '#Interested' " + 
+			      "FROM COURSE1, INTERESTED_IN1 " + 
+				  "WHERE COURSE1.CourseID = INTERESTED_IN1.CourseID " +
+			      "GROUP BY COURSE1.CourseID";
+			
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+
+			rset = pstmt.executeQuery();
+		} catch (SQLException e) {
+			System.out.println("createStatement " + e.getMessage() + sql);
+		}
+
+		return rset;
+	}// employeeByDNO
 	
 	
 	
