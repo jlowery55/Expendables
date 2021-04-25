@@ -68,8 +68,9 @@ public class Utilities {
 	
 	//USER STORY 2:
 	//USER STORY 2:
-	public Students studentsInterested() 
+	public ResultSet studentsInterested() 
 	{
+		ResultSet rset = null;
 		String sql = null;
 
 		try {
