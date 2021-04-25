@@ -105,7 +105,37 @@ public class Utilities {
 	
 	
 	//USER STORY 5:
-	
+	/**
+	 * This method will add a student to STUDENT who is interested in participating in a study group for a course
+	 * 
+	 * @param StudentID is the ID of the Student
+	 * @param CourseID is the ID of the Course
+	 * @return ResultSet that has Student ID and Course ID (for the course the student is interested in)
+	 */
+	public ResultSet showInterest(int StudentID, String CourseID) {
+		ResultSet rset = null;
+		String sql = null;
+		
+		try {
+			sql = "Add student to INTERESTED_IN" + 
+				  "INSERT INTO INTERESTED_IN" +
+				  "VALUES ('?', '?')" +
+				  "SELECT StudentID, CourseID" +
+				  "FROM INTERESTED_IN" +
+				  "WHERE StudentID = ?";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.clearParameters();
+			pstmt.setInt(1, StudentID);
+			pstmt.setString(2, CourseID);
+			pstmt.setInt(3, StudentID);
+			
+			rset = pstmt.executeQuery();
+		} catch (SQLException e) {
+			System.out.println("createStatement" + e.getMessage() + sql);
+		}
+		
+		return rset;
+	}
 	
 	
 	
