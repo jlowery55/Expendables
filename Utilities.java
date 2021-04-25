@@ -119,11 +119,11 @@ public class Utilities {
 		
 		try {
 			sql = "Add student to INTERESTED_IN" + 
-				  "INSERT INTO INTERESTED_IN" +
-				  "VALUES ('?', '?')" +
-				  "SELECT StudentID, CourseID" +
-				  "FROM INTERESTED_IN" +
-				  "WHERE StudentID = ?";
+			      "INSERT INTO INTERESTED_IN" +
+			      "VALUES ('?', '?')" +
+			      "SELECT StudentID, CourseID" +
+			      "FROM INTERESTED_IN" +
+			      "WHERE StudentID = ?";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.clearParameters();
 			pstmt.setInt(1, StudentID);
