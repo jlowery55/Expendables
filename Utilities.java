@@ -59,7 +59,7 @@ public class Utilities {
 	
 	//START USER STORY METHOD HERE*****************************************************************************************************
 
-	//USER STORY 1:
+	//USER STORY 1: (Joey)
 	public ResultSet userStory1(String meetingTime, String courseID, int studyGroupID) {
 		ResultSet rset=null;
 		String sql = null;
