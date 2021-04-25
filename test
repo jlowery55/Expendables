@@ -1,1 +1,23 @@
 
+public class test 
+{
+
+	// Global variables
+	static Utilities testObj = new Utilities(); 		// Utilities object for testing
+
+	public static void main(String[] args) throws SQLException 
+	{
+		callStudentInterest();
+	}
+	static void callStudentInterest() throws SQLException 
+	{
+		ResultSet rs;
+		rs = testObj.studentsInterested();
+		System.out.printf("CourseName ","CourseID ", "#Interested ");
+		while (rs.next()) 
+		{
+			System.out.printf("    %s     ","      %s     ", "        %s\n", rs.getString(1), 
+					rs.getString(2) + ", " + rs.getString(3));
+		}
+	}
+}
