@@ -60,13 +60,28 @@ public class Utilities {
 	//START USER STORY METHOD HERE*****************************************************************************************************
 
 	//USER STORY 1:
+	public ResultSet userStory1(String meetingTime, String courseID, int studyGroupID) {
+		ResultSet rset=null;
+		String sql = null;
+		try {
+		
+			sql = "UPDATE STUDY_GROUP1 " + 
+			      "SET MeetingTimes = ? " + 
+				  "WHERE CourseID = ? AND StudyGroupID=?";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+
+			pstmt.clearParameters();
+			pstmt.setString(1, meetingTime);
+			pstmt.setString(2, courseID);
+			pstmt.setInt(3, studyGroupID);
+			
+			rset=pstmt.executeQuery();
+		} catch (SQLException e) {
+			System.out.println("createStatement " + e.getMessage() + sql);
+	}
+		return rset;
+	}
 	
-	
-	
-	
-	
-	
-	//USER STORY 2:
 	//USER STORY 2:
 	public Students studentsInterested() 
 	{
