@@ -107,7 +107,7 @@ public class Utilities {
 	//USER STORY 5:
 	/**
 	 * (travis)
-	 * This method will add a student to STUDENT who is interested in participating in a study group for a course
+	 * This method will add a student to INTERESTED_IN who is interested in participating in a study group for a course
 	 * 
 	 * @param StudentID is the ID of the Student
 	 * @param CourseID is the ID of the Course
