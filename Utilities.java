@@ -122,7 +122,7 @@ public class Utilities {
 	//USER STORY 5:
 	/**
 	 * (travis)
-	 * This method will add a student to INTERESTED_IN who is interested in participating in a study group for a course
+	 * This method will add a Student to INTERESTED_IN who is interested in participating in a Study Group for a Course
 	 * 
 	 * @param StudentID is the ID of the Student
 	 * @param CourseID is the ID of the Course
@@ -156,7 +156,30 @@ public class Utilities {
 	
 	
 	//USER STORY 6:
-	
+	/**
+	 * (travis)
+	 * This method will add a Student to a Study Group based on the Course they've selected
+	 * 
+	 * @param StudentID is the ID of the Student
+	 * @param StudyGroupID is the ID of the Study Group
+	 */
+	public void joinStudyGroup(int StudentID, int StudyGroupID) {
+		ResultSet rset = null;
+		String sql = null;
+		
+		try {
+			sql = "INSERT INTO IN_GROUP1" +
+			      "VALUES('?', '?')";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.clearParameters();
+			pstmt.setInt(1, StudentID);
+			pstmt.setInt(2, StudyGroupID);
+			
+			rset = pstmt.executeQuery();
+		} catch (SQLException e) {
+			System.out.println("createStatement" + e.getMessage() + sql);
+		}
+	}
 	
 	
 	//END USER STORIES*********************************************************************************************
