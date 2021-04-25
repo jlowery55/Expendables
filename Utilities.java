@@ -68,9 +68,8 @@ public class Utilities {
 	
 	//USER STORY 2:
 	//USER STORY 2:
-	public ResultSet studentsInterested() 
+	public Students studentsInterested() 
 	{
-		ResultSet rset = null;
 		String sql = null;
 
 		try {
@@ -107,6 +106,7 @@ public class Utilities {
 	
 	//USER STORY 5:
 	/**
+	 * (travis)
 	 * This method will add a student to STUDENT who is interested in participating in a study group for a course
 	 * 
 	 * @param StudentID is the ID of the Student
