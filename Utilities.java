@@ -119,9 +119,8 @@ public class Utilities {
 	
 	
 	
-	//USER STORY 5:
+	//USER STORY 5: (Travis)
 	/**
-	 * (travis)
 	 * This method will add a Student to INTERESTED_IN who is interested in participating in a Study Group for a Course
 	 * 
 	 * @param StudentID is the ID of the Student
@@ -134,7 +133,7 @@ public class Utilities {
 		
 		try {
 			sql = "INSERT INTO INTERESTED_IN1" +
-			      "VALUES ('?', '?')" +
+			      "VALUES (?, ?)" +
 			      "SELECT StudentID, CourseID" +
 			      "FROM INTERESTED_IN1" +
 			      "WHERE StudentID = ?";
@@ -155,9 +154,8 @@ public class Utilities {
 	
 	
 	
-	//USER STORY 6:
+	//USER STORY 6: (Travis)
 	/**
-	 * (travis)
 	 * This method will add a Student to a Study Group based on the Course they've selected
 	 * 
 	 * @param StudentID is the ID of the Student
@@ -169,7 +167,7 @@ public class Utilities {
 		
 		try {
 			sql = "INSERT INTO IN_GROUP1" +
-			      "VALUES('?', '?')";
+			      "VALUES(?, ?)";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.clearParameters();
 			pstmt.setInt(1, StudentID);
