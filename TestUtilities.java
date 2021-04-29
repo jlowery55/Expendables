@@ -164,5 +164,22 @@ public class TestUtilities {
 	}
 
 	
+	//UserStory3
+	
+	
+	//UserStory4
+	//test leaveStudyGroup() method
+	static void callLeaveStudyGroup() throws SQLException {
+		int numLeft = 0;
+		System.out.print("Please enter your Student ID: ");
+		String studentID = keyboard.nextLine();
+		System.out.print("Please enter the Study Group you wish to leave: ");
+		String studygroupID = keyboard.nextLine();
+		int studygroupID2 = Integer.parseInt(studygroupID);
+		System.out.println();
+		numLeft = testObj.leaveStudyGroup(studentID, studygroupID2);
+		System.out.println("Number of groups student left: " + numLeft);
+		
+	}
 		
 }//MyUtilitiesTest	
