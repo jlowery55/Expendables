@@ -149,6 +149,19 @@ public class TestUtilities {
         	resultInt = testObj.updateStudyGroupTime(meetingTime, courseID, studyGroupID); 
         	System.out.println("Number of affected tuples " + resultInt);
     	}
+	
+	//UserStory2
+	static void callStudentInterest() throws SQLException 
+	{
+		ResultSet rs;
+		rs = testObj.studentsInterested();
+		System.out.printf("CourseName                               CourseID                    #Interested \n");
+		while (rs.next()) 
+		{
+			System.out.printf("%-30s           %-20s             %-20s\n", rs.getString(1), 
+					rs.getString(2), rs.getString(3));
+		}
+	}
 
 	
 		
