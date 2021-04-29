@@ -82,27 +82,34 @@ public class Utilities {
         	return result;
    	 }
 	
-	//USER STORY 2:
-	public Students studentsInterested() 
+	//USER STORY 2: (Alex)
+	/**
+	*   This method returns a list of courses, the course ID and the students who want to 
+	*   join a study group for that class.
+	*   
+	*   @return Result set with course name, course ID and interested students
+	*/
+	public ResultSet studentsInterested() 
 	{
+		ResultSet rset = null;
 		String sql = null;
 
 		try {
-			// create a Statement and an SQL string for the statement
+			//create a SQL string for the statement
 			sql = "SELECT CourseName, INTERESTED_IN1.CourseID, Count(*) AS '#Interested' " + 
 			      "FROM COURSE1, INTERESTED_IN1 " + 
-				  "WHERE COURSE1.CourseID = INTERESTED_IN1.CourseID " +
+			      "WHERE COURSE1.CourseID = INTERESTED_IN1.CourseID " +
 			      "GROUP BY COURSE1.CourseID";
+				
+			      dStatement pstmt = conn.prepareStatement(sql);
+                              rset = pstmt.executeQuery();
 			
-			PreparedStatement pstmt = conn.prepareStatement(sql);
-
-			rset = pstmt.executeQuery();
 		} catch (SQLException e) {
 			System.out.println("createStatement " + e.getMessage() + sql);
 		}
 
 		return rset;
-	}// employeeByDNO
+	}//studentsInterested
 	
 	
 	
