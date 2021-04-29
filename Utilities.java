@@ -60,7 +60,7 @@ public class Utilities {
 	//START USER STORY METHOD HERE*****************************************************************************************************
 
 	//USER STORY 1: (Joey)
-	public int userStory1(String meetingTime, String courseID, int studyGroupID) {
+	public int updateStudyGroupTime(String meetingTime, String courseID, int studyGroupID) {
         int result =0;
         String sql = null;
         try {
