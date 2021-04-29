@@ -60,7 +60,7 @@ public class Utilities {
 	//START USER STORY METHOD HERE*****************************************************************************************************
 
 	//USER STORY 1: (Joey)
-	public int updateStudyGroupTime(String meetingTime, String courseID, int studyGroupID) {
+	public int userStory1(String meetingTime, String courseID, int studyGroupID) {
         int result =0;
         String sql = null;
         try {
@@ -121,7 +121,35 @@ public class Utilities {
 	
 	
 	//USER STORY 4:
-	
+	/**
+	 * This method creates an SQL statement to delete a student from IN_GROUP
+	 * wherever the StudentID equals the student's ID and the specified study group.
+	 * Written by Vicky Krastev
+	 * @param student is the student's ID
+	 * @param sGNum is the chosen student group
+	 * @return the number of groups that the student left
+	 */
+	public int leaveStudyGroup(String student, int sGNum) {
+		int leaveNum = 0;
+		String sql = null;
+
+		try {
+			// create a Statement and an SQL string for the statement
+			sql = "DELETE FROM IN_GROUP1 " +
+				  "WHERE StudentID = ? AND SG_ID= ?";
+			
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.clearParameters();
+			pstmt.setString(1, student);
+			pstmt.setInt(2, sGNum);
+			leaveNum = pstmt.executeUpdate();
+		} catch (SQLException e) {
+				System.out.println("createStatement " + e.getMessage());
+				System.out.println("sql:" + sql);
+		}
+		
+		return leaveNum;
+	}// leaveStudyGroup
 	
 	
 	
