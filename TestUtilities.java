@@ -134,7 +134,22 @@ public class TestUtilities {
 	static void openUserpass() {
 		testObj.openDB("ex367", "ex367");
 	}
-	
+	//UserStory1
+    	static void callUpdateStudyGroupTime() throws SQLException{
+        	int resultInt;
+        	System.out.print("Please enter a new meeting time in the format (HH:MM:SS): ");
+        	String input = keyboard.nextLine();
+        	String meetingTime=(input);
+        	System.out.println("Please enter the Course ID: ");
+        	String input2 = keyboard.nextLine();
+        	String courseID=(input2);
+        	System.out.print("Please enter the Study Group ID: ");
+        	String input3 = keyboard.nextLine();
+        	int studyGroupID= Integer.parseInt(input3); 
+        	resultInt = testObj.updateStudyGroupTime(meetingTime, courseID, studyGroupID); 
+        	System.out.println("Number of affected tuples " + resultInt);
+    	}
+
 	
 		
 }//MyUtilitiesTest	
