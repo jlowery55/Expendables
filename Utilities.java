@@ -113,8 +113,52 @@ public class Utilities {
 	
 	
 	
-	
-	//USER STORY 3:
+	/**
+	 * USER STORY 3 (Ashwin, but like it was everyone because this problem was hard):
+	 * THIS METHOD WILL LIST COURSES TO SHOW WHICH ONES THE ADMIN IS ABLE TO TUTOR THAT
+	 * THEY ARE NOT ALREADY TUTORING. 
+	 * @param 
+	 * @return a list of courses the individual admin can tutor
+	 * 
+	 * 
+	 */
+	public ResultSet adminTutor(String fname, String lname)
+		{
+			
+			ResultSet rset = null;
+			String sql = null;
+			
+			try {
+				sql = "SELECT A.Fname, A.Lname, CourseName, T.CourseID" + 
+						" FROM TUTORABLE1 as T, COURSE1 as C, ADMIN1 as A" + 
+						" WHERE T.CourseID = C.CourseID AND A.ID = T.AdminID AND T.AdminID =" + 
+						" (SELECT ID" + 
+						" FROM ADMIN1 as A1" +
+						" WHERE A1.fname = ? and A1.lname = ?) and T.CourseID NOT IN" + 
+						" (SELECT CourseID" + 
+						" FROM STUDY_GROUP1" + 
+						" WHERE AdminID = " +
+						" (SELECT ID" + 
+						" FROM ADMIN1 as A1" + 
+						" WHERE A1.Fname = ? and A1.Lname = ?))";
+				
+
+				PreparedStatement pstmt = conn.prepareStatement(sql);
+				pstmt.clearParameters();
+				pstmt.setString(1, fname);
+				pstmt.setString(2, lname);
+				pstmt.setString(3, fname);
+				pstmt.setString(4, lname);
+				
+				rset = pstmt.executeQuery();
+			} catch (SQLException e)
+			{
+				System.out.println("createStatement" + e.getMessage());
+				System.out.println("sql" + sql);
+			}
+			
+			return rset;
+		}
 	
 	
 	
