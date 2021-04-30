@@ -165,22 +165,32 @@ public class Utilities {
 	public ResultSet showInterest(int StudentID, String CourseID) {
 		ResultSet rset = null;
 		String sql = null;
+		String sql2 = null;
 		
 		try {
-			sql = "INSERT INTO INTERESTED_IN1" +
-			      "VALUES (?, ?)" +
-			      "SELECT StudentID, CourseID" +
-			      "FROM INTERESTED_IN1" +
-			      "WHERE StudentID = ?";
-			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.clearParameters();
-			pstmt.setInt(1, StudentID);
-			pstmt.setString(2, CourseID);
-			pstmt.setInt(3, StudentID);
+			sql = "INSERT INTO INTERESTED_IN1 " +
+				  "VALUES (?, ?) ";
 			
-			rset = pstmt.executeQuery();
+			sql2 = "SELECT StudentID, CourseID " +
+				   "FROM INTERESTED_IN1 " +
+				   "WHERE StudentID = ?";
+			
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			PreparedStatement pstmt2 = conn.prepareStatement(sql2);
+			
+			pstmt.clearParameters();
+			pstmt.setInt(1,  StudentID);
+			pstmt.setString(2,  CourseID);
+			
+			pstmt2.clearParameters();
+			pstmt2.setInt(1,  StudentID);
+			
+			pstmt.executeUpdate();
+			rset = pstmt2.executeQuery();
+			
 		} catch (SQLException e) {
 			System.out.println("createStatement" + e.getMessage() + sql);
+			System.out.println("createStatement2" + e.getMessage() + sql2);
 		}
 		
 		return rset;
@@ -196,22 +206,26 @@ public class Utilities {
 	 * @param StudentID is the ID of the Student
 	 * @param StudyGroupID is the ID of the Study Group
 	 */
-	public void joinStudyGroup(int StudentID, int StudyGroupID) {
+	public int joinStudyGroup(int StudentID, int StudyGroupID) {
 		ResultSet rset = null;
 		String sql = null;
+		int num = 0;
 		
 		try {
-			sql = "INSERT INTO IN_GROUP1" +
-			      "VALUES(?, ?)";
+			sql = "INSERT INTO IN_GROUP1 " +
+				  "VALUES(?, ?) ";
+			
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.clearParameters();
 			pstmt.setInt(1, StudentID);
 			pstmt.setInt(2, StudyGroupID);
 			
-			rset = pstmt.executeQuery();
+			num = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("createStatement" + e.getMessage() + sql);
 		}
+		
+		return num;
 	}
 	
 	
