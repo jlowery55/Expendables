@@ -166,6 +166,24 @@ public class TestUtilities {
 	
 	//UserStory3
 	
+	static void adminTUTOR() throws SQLException
+	{
+		ResultSet rs;
+		System.out.println("Please enter a fname");
+		String input = keyboard.nextLine();
+		System.out.println("Please enter a lname");
+		String input1 = keyboard.nextLine();
+		System.out.println("Admin can tutor");
+		System.out.println(" fname        lname        CourseName        		CourseID");
+		rs = testObj.adminTutor(input, input1);
+		while(rs.next())
+		{
+			 System.out.printf("%-8s     %s    %-30s  %s\n", rs.getString(1), 
+                     rs.getString(2), rs.getString(3), rs.getString(4));
+		}
+		
+	}
+	
 	
 	//UserStory4
 	//test leaveStudyGroup() method
