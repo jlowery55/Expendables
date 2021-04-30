@@ -30,62 +30,34 @@ public class TestUtilities {
 			choice = getChoice();
 			switch (choice) {
 			case 1: {
-				openDefault();
-				break;
-			}
-			case 2: {
-				callGetNameSalary();
-				break;
-			}
-			case 3: {
-				callMatchName();
-				break;
-			}
-			case 4: {
-				callEmployeeByDNO();
-				break;
-			}
-			case 5: {
 				openUserpass();
 				break;
 			}
+			case 2: {
+				callUpdateStudyGroupTime();
+				break;
+			}
+			case 3: {
+				callStudentInterest();
+				break;
+			}
+			case 4: {
+				//callAdminTutor();
+				break;
+			}
+			case 5: {
+				callLeaveStudyGroup();
+				break;
+			}
 			case 6: {
-				callMethod2();
+				callShowInterest();
 				break;
 			}
 			case 7: {
-				callMethod3();
+				callJoinStudyGroup();
 				break;
 			}
 			case 8: {
-				callMethod4();
-				break;
-			}
-			case 9: {
-				testObj.closeDB(); //close the DB connection 
-				break;
-			}
-			case 10: {
-				callMethod5();
-				break;
-			}
-			case 11: {
-				callMethod6();
-				break;
-			}
-			case 12: {
-				callMethod7();
-				break;
-			}
-			case 13: {
-				callMethod8();
-				break;
-			}
-			case 14: {
-				callMethod9();
-				break;
-			}
-			case 15: {
 				done = true;
 				System.out.println("Good bye");
 				break;
@@ -98,28 +70,21 @@ public class TestUtilities {
 
 	static void displaymenu() {
 		System.out.println("1)  open default DB");
-		System.out.println("2)  call getNameSalary()");
-		System.out.println("3)  call matchLastName(String)");
-		System.out.println("4)  call employeeByDNO()");
-		System.out.println("5)  open using username and pass (opens using ex367 user and pass)");
-		System.out.println("6)  call method 2");
-		System.out.println("7)  call method 3");
-		System.out.println("8)  call method 4");
-		System.out.println("9)  close the DB");
-		System.out.println("10) call method 5");
-		System.out.println("11) call method 6");
-		System.out.println("12) call updateMethod 1");
-		System.out.println("13) call updateMethod 2");
-		System.out.println("14) call updateMethod 3");
-		System.out.println("15) quit");
+		System.out.println("2)  call updateStudyGroupTime");
+		System.out.println("3)  call studentInterest");
+		System.out.println("4)  call adminTutor");
+		System.out.println("5)  call leaveStudyGroup");
+		System.out.println("6)  call showInterest");
+		System.out.println("7)  call joinStudyGroup");
+		System.out.println("8) quit");
 	}
 
 	static int getChoice() {
 		String input;
 		int i = 0;
-		while (i < 1 || i > 15) {
+		while (i < 1 || i > 8) {
 			try {
-				System.out.print("Please enter an integer between 1-15: ");
+				System.out.print("Please enter an integer between 1-8: ");
 				input = keyboard.nextLine();
 				i = Integer.parseInt(input);
 				System.out.println();
@@ -130,7 +95,7 @@ public class TestUtilities {
 		return i;
 	}
 	
-	//test new Method1
+	//open DB
 	static void openUserpass() {
 		testObj.openDB("ex367", "ex367");
 	}
@@ -165,24 +130,6 @@ public class TestUtilities {
 
 	
 	//UserStory3
-	
-	static void adminTUTOR() throws SQLException
-	{
-		ResultSet rs;
-		System.out.println("Please enter a fname");
-		String input = keyboard.nextLine();
-		System.out.println("Please enter a lname");
-		String input1 = keyboard.nextLine();
-		System.out.println("Admin can tutor");
-		System.out.println(" fname        lname        CourseName        		CourseID");
-		rs = testObj.adminTutor(input, input1);
-		while(rs.next())
-		{
-			 System.out.printf("%-8s     %s    %-30s  %s\n", rs.getString(1), 
-                     rs.getString(2), rs.getString(3), rs.getString(4));
-		}
-		
-	}
 	
 	
 	//UserStory4
