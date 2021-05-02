@@ -130,16 +130,16 @@ public class Utilities {
 			
 			try {
 				sql = "SELECT A.Fname, A.Lname, CourseName, T.CourseID" + 
-						" FROM TUTORABLE1 as T, COURSE1 as C, ADMIN1 as A" + 
+						" FROM TUTORABLE as T, COURSE as C, ADMIN as A" + 
 						" WHERE T.CourseID = C.CourseID AND A.ID = T.AdminID AND T.AdminID =" + 
 						" (SELECT ID" + 
-						" FROM ADMIN1 as A1" +
+						" FROM ADMIN as A1" +
 						" WHERE A1.fname = ? and A1.lname = ?) and T.CourseID NOT IN" + 
 						" (SELECT CourseID" + 
-						" FROM STUDY_GROUP1" + 
+						" FROM STUDY_GROUP" + 
 						" WHERE AdminID = " +
 						" (SELECT ID" + 
-						" FROM ADMIN1 as A1" + 
+						" FROM ADMIN as A1" + 
 						" WHERE A1.Fname = ? and A1.Lname = ?))";
 				
 
