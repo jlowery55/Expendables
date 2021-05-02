@@ -60,12 +60,21 @@ public class Utilities {
 	//START USER STORY METHOD HERE*****************************************************************************************************
 
 	//USER STORY 1: (Joey)
+	/**
+	* This method updates a study group's meeting time
+	* 
+	*@param meetingTime the new meeting time of the group in format (HH:MM:SS)
+	*@param courseID string representing the course ID, i.e. CSCI144
+	*@param studyGroupID integer representing the study group ID, i.e. 1, 2, 3
+	*@return integer representing number of tuples affected
+	*
+	*/
 	public int updateStudyGroupTime(String meetingTime, String courseID, int studyGroupID) {
         int result =0;
         String sql = null;
         try {
 
-            sql = "UPDATE STUDY_GROUP1 " + 
+            sql = "UPDATE STUDY_GROUP " + 
                   "SET MeetingTimes = ? " + 
                   "WHERE CourseID = ? AND StudyGroupID=?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
