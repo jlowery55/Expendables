@@ -105,10 +105,10 @@ public class Utilities {
 
 		try {
 			//create a SQL string for the statement
-			sql = "SELECT CourseName, INTERESTED_IN1.CourseID, Count(*) AS '#Interested' " + 
-			      "FROM COURSE1, INTERESTED_IN1 " + 
-			      "WHERE COURSE1.CourseID = INTERESTED_IN1.CourseID " +
-			      "GROUP BY COURSE1.CourseID";
+			sql = "SELECT CourseName, INTERESTED_IN.CourseID, Count(*) AS '#Interested' " + 
+			      "FROM COURSE, INTERESTED_IN " + 
+			      "WHERE COURSE.CourseID = INTERESTED_IN.CourseID " +
+			      "GROUP BY COURSE.CourseID";
 				
 			      dStatement pstmt = conn.prepareStatement(sql);
                               rset = pstmt.executeQuery();
@@ -188,7 +188,7 @@ public class Utilities {
 
 		try {
 			// create a Statement and an SQL string for the statement
-			sql = "DELETE FROM IN_GROUP1 " +
+			sql = "DELETE FROM IN_GROUP " +
 				  "WHERE StudentID = ? AND SG_ID= ?";
 			
 			PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -221,11 +221,11 @@ public class Utilities {
 		String sql2 = null;
 		
 		try {
-			sql = "INSERT INTO INTERESTED_IN1 " +
+			sql = "INSERT INTO INTERESTED_IN " +
 				  "VALUES (?, ?) ";
 			
 			sql2 = "SELECT StudentID, CourseID " +
-				   "FROM INTERESTED_IN1 " +
+				   "FROM INTERESTED_IN " +
 				   "WHERE StudentID = ?";
 			
 			PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -265,7 +265,7 @@ public class Utilities {
 		int num = 0;
 		
 		try {
-			sql = "INSERT INTO IN_GROUP1 " +
+			sql = "INSERT INTO IN_GROUP " +
 				  "VALUES(?, ?) ";
 			
 			PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -285,114 +285,6 @@ public class Utilities {
 	//END USER STORIES*********************************************************************************************
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	/**
-	 * This method creates an SQL statement to list fname, lname, salary of all
-	 * employees that work in the department with dname='Research'
-	 * 
-	 * @return ResultSet that contains three columns lname, fname, salary of all
-	 *         employees that work in the research department
-	 */
-	public ResultSet getNameSalary() {
-		ResultSet rset = null;
-		String sql = null;
-
-		try {
-			// create a Statement and an SQL string for the statement
-			Statement stmt = conn.createStatement();
-			sql = "SELECT lname, fname, salary " +
-			      "FROM employee, department " + 
-				  "WHERE dno=dnumber and dname='Research' " + 
-			      "ORDER BY lname, fname";
-			rset = stmt.executeQuery(sql);
-		} catch (SQLException e) {
-			System.out.println("createStatement " + e.getMessage() + sql);
-		}
-
-		return rset;
-	}// getNameSalary
-
-	/**
-	 * This method creates an SQL statement to list fname, lname, and department
-	 * number of all employees that have a last name that starts with the String
-	 * target - 
-	 * THIS IS AN EXAMPLE OF WHAT NOT TO DO!!!!
-	 * THIS SHOULD REALLY BE DONE WITH A PREPARED STATMENT
-	 * 
-	 * @param target the string used to match beginning of employee's last name
-	 * @return ResultSet that contains lname, fname, and department number of
-	 *         all employees that have a first name that starts with target.
-	 */
-	public ResultSet matchLastName(String target) {
-		ResultSet rset = null;
-		String sql = null;
-
-		try {
-			// create a Statement and an SQL string for the statement
-			Statement stmt = conn.createStatement();
-			sql = "SELECT dno, lname, fname " + 
-			      "FROM employee " + 
-				  "WHERE lname like '" + target + "%' " + 
-			      "ORDER BY dno";
-			rset = stmt.executeQuery(sql);
-		} catch (SQLException e) {
-			System.out.println("createStatement " + e.getMessage() + sql);
-		}
-
-		return rset;
-
-	}// matchLastName
-
-	/**
-	 * This method creates an SQL statement to list fname, lname, and department
-	 * number of all employees that work in the department with number dno
-	 * 
-	 * @param dno the department number
-	 * @return ResultSet that contains lname, fname, and department number of
-	 *         all employees that work in the department number dno
-	 */
-	// EXAMPLE OF USING A PreparedStatement AND SETTING Parameters
-	public ResultSet employeeByDNO(int dno) {
-		ResultSet rset = null;
-		String sql = null;
-
-		try {
-			// create a Statement and an SQL string for the statement
-			sql = "SELECT dno, lname, fname FROM employee " + 
-			      "WHERE dno = ? " + 
-				  "ORDER BY dno";
-			PreparedStatement pstmt = conn.prepareStatement(sql);
-
-			pstmt.clearParameters();
-			pstmt.setInt(1, dno); // set the 1 parameter
-
-			rset = pstmt.executeQuery();
-		} catch (SQLException e) {
-			System.out.println("createStatement " + e.getMessage() + sql);
-		}
-
-		return rset;
-	}// employeeByDNO
 
 	
 
