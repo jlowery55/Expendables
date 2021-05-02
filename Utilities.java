@@ -126,7 +126,8 @@ public class Utilities {
 	 * USER STORY 3 (Ashwin, but like it was everyone because this problem was hard):
 	 * THIS METHOD WILL LIST COURSES TO SHOW WHICH ONES THE ADMIN IS ABLE TO TUTOR THAT
 	 * THEY ARE NOT ALREADY TUTORING. 
-	 * @param 
+	 * @param fname: first name of the the Admin
+	 * @param lname: last name of the Admin
 	 * @return a list of courses the individual admin can tutor
 	 * 
 	 * 
