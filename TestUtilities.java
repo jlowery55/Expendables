@@ -143,7 +143,8 @@ public class TestUtilities {
 		int studygroupID2 = Integer.parseInt(studygroupID);
 		System.out.println();
 		numLeft = testObj.leaveStudyGroup(studentID, studygroupID2);
-		System.out.println("Number of groups student left: " + numLeft);
+		System.out.println("Number of students leaving study group " +studygroupID2 +": " + numLeft);
+
 		
 	}
 	
