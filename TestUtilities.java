@@ -42,7 +42,7 @@ public class TestUtilities {
 				break;
 			}
 			case 4: {
-				//callAdminTutor();
+				callAdminTutor();
 				break;
 			}
 			case 5: {
