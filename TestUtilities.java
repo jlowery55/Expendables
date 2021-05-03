@@ -166,19 +166,15 @@ public class TestUtilities {
 	//UserStory5
 	// test showInterest() method
 	static void callShowInterest() throws SQLException {
-		ResultSet rs;
+		int num;
 		System.out.println("Please enter your Student ID and the Course ID: ");
-		String input = keyboard.nextLine().replaceAll("[\\s[^a-zA-Z_0-9,]]", "");
-		String[] val = input.split(",");
+		int studentID = keyboard.nextInt();
+		String courseID = keyboard.next();
 		
-		//Integer.parseInt(val[0])
+		System.out.println("\nStudent interested in joining a study group for " + courseID);
 		
-		System.out.println("\nStudent interested in joining a study group for " + val[1]);
-		System.out.println("*************************************");
-		System.out.printf("%-10s %s", "StudentID", "CourseID");
-		rs = testObj.showInterest(Integer.parseInt(val[0]), val[1]);
-		while(rs.next()) {
-			System.out.printf("%-10d %s", rs.getInt(1), rs.getString(2));
+		num = testObj.showInterest(studentID, courseID);
+		System.out.println("Number of tuples successfully inserted: " + num);
 		}
 	}
 	
@@ -188,14 +184,13 @@ public class TestUtilities {
 		int num = 0;
 		System.out.println("Please enter your Student ID and Study Group ID: ");
 
-		
 		int studentID = keyboard.nextInt();
 		int sgID = keyboard.nextInt();
 		
 		System.out.println("\nStudent joining study group " + sgID);
 
 		num = testObj.joinStudyGroup(studentID, sgID);
-		System.out.println(num);
+		System.out.println("Number of tuples successfully inserted: " + num);
 	}
 	
 	
