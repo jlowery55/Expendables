@@ -9,7 +9,7 @@ package dbUtil;
 import java.sql.*;
 
 /**
- * @author Dr. Blaha
+ * @author Expendables
  * 
  */
 public class Utilities {
