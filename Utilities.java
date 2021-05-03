@@ -226,10 +226,10 @@ public class Utilities {
 	 * 
 	 * @param StudentID is the ID of the Student
 	 * @param CourseID is the ID of the Course
-	 * @return ResultSet that has Student ID and Course ID (for the course the student is interested in)
+	 * @return num the nmber of tuples successfully inserted
 	 */
 	public ResultSet showInterest(int StudentID, String CourseID) {
-		ResultSet rset = null;
+		int num = 0;
 		String sql = null;
 		String sql2 = null;
 		
@@ -252,14 +252,14 @@ public class Utilities {
 			pstmt2.setInt(1,  StudentID);
 			
 			pstmt.executeUpdate();
-			rset = pstmt2.executeQuery();
+			num = pstmt2.executeUpdate();
 			
 		} catch (SQLException e) {
 			System.out.println("createStatement" + e.getMessage() + sql);
 			System.out.println("createStatement2" + e.getMessage() + sql2);
 		}
 		
-		return rset;
+		return num;
 	}
 	
 	
@@ -271,6 +271,7 @@ public class Utilities {
 	 * 
 	 * @param StudentID is the ID of the Student
 	 * @param StudyGroupID is the ID of the Study Group
+	 * @return num the number of tuples successfully inserted
 	 */
 	public int joinStudyGroup(int StudentID, int StudyGroupID) {
 		String sql = null;
