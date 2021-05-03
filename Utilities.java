@@ -231,32 +231,21 @@ public class Utilities {
 	public ResultSet showInterest(int StudentID, String CourseID) {
 		int num = 0;
 		String sql = null;
-		String sql2 = null;
 		
 		try {
 			sql = "INSERT INTO INTERESTED_IN " +
 				  "VALUES (?, ?) ";
 			
-			sql2 = "SELECT StudentID, CourseID " +
-				   "FROM INTERESTED_IN " +
-				   "WHERE StudentID = ?";
-			
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			PreparedStatement pstmt2 = conn.prepareStatement(sql2);
 			
 			pstmt.clearParameters();
 			pstmt.setInt(1,  StudentID);
 			pstmt.setString(2,  CourseID);
 			
-			pstmt2.clearParameters();
-			pstmt2.setInt(1,  StudentID);
-			
-			pstmt.executeUpdate();
-			num = pstmt2.executeUpdate();
+			num = pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
 			System.out.println("createStatement" + e.getMessage() + sql);
-			System.out.println("createStatement2" + e.getMessage() + sql2);
 		}
 		
 		return num;
