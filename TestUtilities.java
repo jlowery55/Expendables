@@ -9,7 +9,7 @@ import java.sql.*;
 import java.util.Scanner;
 
 /**
- * @author Dr. Blaha
+ * @author Expendables
  * 
  */
 public class TestUtilities {
