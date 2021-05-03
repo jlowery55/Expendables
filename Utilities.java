@@ -110,7 +110,7 @@ public class Utilities {
 			      "WHERE COURSE.CourseID = INTERESTED_IN.CourseID " +
 			      "GROUP BY COURSE.CourseID";
 				
-			      dStatement pstmt = conn.prepareStatement(sql);
+			      PreparedStatement pstmt = conn.prepareStatement(sql);
                               rset = pstmt.executeQuery();
 			
 		} catch (SQLException e) {
@@ -261,7 +261,6 @@ public class Utilities {
 	 * @param StudyGroupID is the ID of the Study Group
 	 */
 	public int joinStudyGroup(int StudentID, int StudyGroupID) {
-		ResultSet rset = null;
 		String sql = null;
 		int num = 0;
 		
