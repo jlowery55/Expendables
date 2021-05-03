@@ -71,10 +71,10 @@ public class Utilities {
 	
 	//START USER STORY METHOD HERE*****************************************************************************************************
 
-	//USER STORY 1: (Joey)
+	//USER STORY 1:
 	/**
 	* This method updates a study group's meeting time
-	* 
+	* Written by Joey Lowery
 	*@param meetingTime the new meeting time of the group in format (HH:MM:SS)
 	*@param courseID string representing the course ID, i.e. CSCI144
 	*@param studyGroupID integer representing the study group ID, i.e. 1, 2, 3
@@ -103,11 +103,11 @@ public class Utilities {
         	return result;
    	 }
 	
-	//USER STORY 2: (Alex)
+	//USER STORY 2:
 	/**
 	*   This method returns a list of courses, the course ID and the students who want to 
 	*   join a study group for that class.
-	*   
+	*   Written by Alex Richter
 	*   @return Result set with course name, course ID and interested students
 	*/
 	public ResultSet studentsInterested() 
@@ -220,15 +220,15 @@ public class Utilities {
 	
 	
 	
-	//USER STORY 5: (Travis)
+	//USER STORY 5: 
 	/**
 	 * This method will add a Student to INTERESTED_IN who is interested in participating in a Study Group for a Course
-	 * 
+	 * Written by Travis Dunn
 	 * @param StudentID is the ID of the Student
 	 * @param CourseID is the ID of the Course
-	 * @return num the nmber of tuples successfully inserted
+	 * @return num the number of tuples successfully inserted
 	 */
-	public ResultSet showInterest(int StudentID, String CourseID) {
+	public int showInterest(String StudentID, String CourseID) {
 		int num = 0;
 		String sql = null;
 		
@@ -239,7 +239,7 @@ public class Utilities {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			
 			pstmt.clearParameters();
-			pstmt.setInt(1,  StudentID);
+			pstmt.setString(1,  StudentID);
 			pstmt.setString(2,  CourseID);
 			
 			num = pstmt.executeUpdate();
@@ -254,15 +254,15 @@ public class Utilities {
 	
 	
 	
-	//USER STORY 6: (Travis)
+	//USER STORY 6: 
 	/**
 	 * This method will add a Student to a Study Group based on the Course they've selected
-	 * 
+	 * Written by Travis Dunn
 	 * @param StudentID is the ID of the Student
 	 * @param StudyGroupID is the ID of the Study Group
 	 * @return num the number of tuples successfully inserted
 	 */
-	public int joinStudyGroup(int StudentID, int StudyGroupID) {
+	public int joinStudyGroup(String StudentID, int StudyGroupID) {
 		String sql = null;
 		int num = 0;
 		
@@ -272,7 +272,7 @@ public class Utilities {
 			
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.clearParameters();
-			pstmt.setInt(1, StudentID);
+			pstmt.setString(1, StudentID);
 			pstmt.setInt(2, StudyGroupID);
 			
 			num = pstmt.executeUpdate();

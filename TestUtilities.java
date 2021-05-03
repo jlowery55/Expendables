@@ -105,14 +105,14 @@ public class TestUtilities {
         	System.out.print("Please enter a new meeting time in the format (HH:MM:SS): ");
         	String input = keyboard.nextLine();
         	String meetingTime=(input);
-        	System.out.println("Please enter the Course ID: ");
+        	System.out.print("Please enter the Course ID: ");
         	String input2 = keyboard.nextLine();
         	String courseID=(input2);
         	System.out.print("Please enter the Study Group ID: ");
         	String input3 = keyboard.nextLine();
         	int studyGroupID= Integer.parseInt(input3); 
         	resultInt = testObj.updateStudyGroupTime(meetingTime, courseID, studyGroupID); 
-        	System.out.println("Number of affected tuples " + resultInt);
+        	System.out.println("Number of updated study group times " + resultInt);
     	}
 	
 	//UserStory2
@@ -133,12 +133,12 @@ public class TestUtilities {
 	//test adminTutor() method
 	static void callAdminTutor() throws SQLException{
 		ResultSet rs;
-        System.out.println("Please enter a fname");
+        System.out.print("Please enter a fname: ");
         String input = keyboard.nextLine();
-        System.out.println("Please enter a lname");
+        System.out.print("Please enter a lname: ");
         String input1 = keyboard.nextLine();
         System.out.println("Admin can tutor");
-        System.out.println(" fname        lname        CourseName                    CourseID");
+        System.out.println("fname        lname        CourseName                    CourseID");
         rs = testObj.adminTutor(input, input1);
         while(rs.next())
         {
@@ -164,34 +164,37 @@ public class TestUtilities {
 	}
 	
 	//UserStory5
-	// test showInterest() method
-	static void callShowInterest() throws SQLException {
-		int num;
-		System.out.println("Please enter your Student ID and the Course ID: ");
-		int studentID = keyboard.nextInt();
-		String courseID = keyboard.next();
-		
-		System.out.println("\nStudent interested in joining a study group for " + courseID);
-		
-		num = testObj.showInterest(studentID, courseID);
-		System.out.println("Number of tuples successfully inserted: " + num);
-		}
-	}
+	 // test showInterest() method
+    static void callShowInterest() throws SQLException {
+        int num;
+        System.out.print("Please enter your Student ID: ");
+        String studentID = keyboard.nextLine();
+
+        System.out.print("Please enter the CourseID: ");
+        String courseID = keyboard.nextLine();
+
+        System.out.print("\nStudent interested in joining a study group for " + courseID +"\n");
+
+        num = testObj.showInterest(studentID, courseID);
+        System.out.print("Number of students newly showing interest: " + num);
+    }
 	
 	//UserStory6
-	// test joinStudyGroup() method
-	static void callJoinStudyGroup() throws SQLException {
-		int num = 0;
-		System.out.println("Please enter your Student ID and Study Group ID: ");
+ // test joinStudyGroup() method
+    static void callJoinStudyGroup() throws SQLException {
+        int num = 0;
+        System.out.print("Please enter your Student ID: ");
+        String studentID = keyboard.nextLine();
 
-		int studentID = keyboard.nextInt();
-		int sgID = keyboard.nextInt();
-		
-		System.out.println("\nStudent joining study group " + sgID);
+        System.out.print("Please enter the StudyGroup ID: ");
+        String sgID = keyboard.nextLine();
+        int sgID2=Integer.parseInt(sgID);
 
-		num = testObj.joinStudyGroup(studentID, sgID);
-		System.out.println("Number of tuples successfully inserted: " + num);
-	}
+        System.out.print("\nStudent joining study group " + sgID + "\n");
+
+        num = testObj.joinStudyGroup(studentID, sgID2);
+        System.out.println("Number of students that joined a study group: " + num );
+        }
 	
 	
 }//MyUtilitiesTest	
