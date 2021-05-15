@@ -1,0 +1,46 @@
+@CHARSET "UTF-8";
+ h1 {
+    color: black;
+    text-decoration: underline;
+  }
+
+  table, th, td {
+   border: 1px solid black;
+   border-collapse: collapse;
+   padding:5px;
+  }
+  
+  table.center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  table.noborder td{border:0;}
+  table.noborder th{border:0;}
+  table.noOuterborder {border:0;}
+  
+  body {
+    background-color: rgb(245,245,245);
+  }
+  
+    label{
+    width: 100px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    
+   }
+   
+  input{
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }   
+  
+  
+  img.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}

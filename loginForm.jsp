@@ -12,7 +12,7 @@
 <%@ include file="head.jsp" %>
 <%String id = request.getParameter("ID"); %>
 <h1>Login Page</h1>
-<form action="UserStory4Form.jsp" method="get">
+<form action="userStoryFourForm.jsp" method="get">
 
 <p>Please enter your ID: </p>
 <input type="text" name="ID" value="<%=id %>" size="15" ><br><br>
