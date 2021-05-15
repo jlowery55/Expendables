@@ -286,6 +286,49 @@ public class Utilities {
 	
 	//END USER STORIES*********************************************************************************************
 	
+	/**
+	 * Helper method for User Story 4 (Leave Study Group). This method  lists the study group ID,
+	 * the course ID, the meeting times and days, the location, and the adminstartor's name for
+	 * each study group that the student is participating in. 
+	 * Written by Vicky Krastev
+	 * @param StudentID, the student ID for the current student
+	 * @return rs, a ResultSet of the study groups along with their information for the student. 
+	 */
+	public ResultSet getStudyGroups(String StudentID) {
+		String sql = null;
+		ResultSet rs = null;
+		
+		try {
+			sql = "SELECT sg2.StudyGroupID, sg2.CourseID, sg2.MeetingTimes, sg2.MeetingDays, sg2.Location, a2.fname, a2.lname "
+					+ "FROM STUDY_GROUP as sg2, ADMIN as a2 "
+					+ "WHERE sg2.AdminID = a2.ID and sg2.StudyGroupID IN "
+					+ "(SELECT ig2.SG_ID "
+					+ "FROM  IN_GROUP as ig2 "
+					+ "WHERE ig2.StudentID = ?) and a2.fname IN "
+					+ "(SELECT a1.fname "
+					+ "FROM ADMIN as a1 "
+					+ "WHERE a1.ID IN "
+					+ "(Select sg1.AdminID "
+					+ "from STUDY_GROUP as sg1 "
+					+ "where sg1.StudyGroupID IN "
+					+ "(select ig1.SG_ID "
+					+ "from IN_GROUP as ig1 "
+					+ "where ig1.StudentID = ?)))";
+			
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.clearParameters();
+			pstmt.setString(1, StudentID);
+			pstmt.setString(2, StudentID);
+			rs = pstmt.executeQuery();
+		} catch (SQLException e) {
+			System.out.println("createStatement" + e.getMessage() + sql);
+		}
+		
+		return rs;
+	}
+	
+	
+
 	
 
 	
