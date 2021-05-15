@@ -117,13 +117,15 @@ public class Utilities {
 
 		try {
 			//create a SQL string for the statement
+			
+			Statement stmt = conn.createStatement();
+			
 			sql = "SELECT CourseName, INTERESTED_IN.CourseID, Count(*) AS '#Interested' " + 
 			      "FROM COURSE, INTERESTED_IN " + 
 			      "WHERE COURSE.CourseID = INTERESTED_IN.CourseID " +
 			      "GROUP BY COURSE.CourseID";
 				
-			      PreparedStatement pstmt = conn.prepareStatement(sql);
-                              rset = pstmt.executeQuery();
+			rset = stmt.executeQuery(sql);
 			
 		} catch (SQLException e) {
 			System.out.println("createStatement " + e.getMessage() + sql);
