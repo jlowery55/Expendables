@@ -18,7 +18,16 @@
 <%@ include file="head.jsp" %>
 
 <h1>Finds Students Interested In Joining Study Groups</h1>
-<form action="userStoryTwoHandler.jsp" method="get">
+<% String user  = request.getParameter("ID"); 
+   boolean userStatus = myUtil.getAdminID(user);
+   if(userStatus)
+   { %>
+	   <form action="userStoryTwoHandlerA.jsp" method="get">
+<% }
+   else
+   { %>
+	   <form action="userStoryTwoHandlerB.jsp" method="get">
+ <%  } %>
 
 <br>
 <input type="submit">
