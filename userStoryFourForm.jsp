@@ -14,7 +14,7 @@
 
 <%@ include file="head.jsp" %>
 
-<form action = "loginInForm.jsp" method = "get">
+<form action = "loginForm.jsp" method = "get">
 
 <% String student = request.getParameter("ID"); 
 %> 
