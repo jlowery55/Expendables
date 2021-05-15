@@ -400,7 +400,27 @@ public class Utilities {
 		}
 		return rs;
 	}
-	
+     /**
+     * Helper method
+     * @return
+     */
+    public ResultSet studyGroups() {
+        ResultSet rset = null;
+        String sql = null;
+
+        try {
+            sql = "SELECT StudyGroupID, CourseID " +
+                  "FROM STUDY_GROUP " + 
+                  "ORDER BY StudyGroupID ";
+
+            Statement stmt = conn.createStatement();
+            rset = stmt.executeQuery(sql);
+        } catch (SQLException e) {
+            System.out.println("problem with studyGroups()" + e.getMessage() + sql);
+        }
+
+        return rset;
+    }
 
 	
 
