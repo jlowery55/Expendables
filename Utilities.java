@@ -326,7 +326,56 @@ public class Utilities {
 		
 		return rs;
 	}
+	//Helper method to get all Admin IDs  (Written by Joey)
+	public boolean getAdminID(String inputID) {
+		boolean bo=false;
+		String sql = null;
+		 try {
+
+	            sql = "SELECT ID "
+	            	+ "FROM ADMIN ";
+	            PreparedStatement pstmt = conn.prepareStatement(sql);
+
+	            pstmt.clearParameters();
+	            ResultSet rs=pstmt.executeQuery();
+	            String idCounter;
+	            	if(rs.next()){
+	            		idCounter = rs.getString("ID");
+	            		if( idCounter.equals(inputID)) {
+	            			bo=true;
+	            		}
+	            	}
+	            
+	            
+
+	        } catch (SQLException e) {
+	            System.out.println("createStatement " + e.getMessage() + sql);
+	   	 }
+		
+		
+		return bo;
+	}
 	
+	//Helper Method to Display Study Group Times (Written by Joey)
+	public ResultSet displaySGInfo(int sgID) {
+		ResultSet rs= null;
+		String sql=null;
+		try {
+			//create a SQL string for the statement
+			sql = "SELECT * "
+					+ "FROM STUDY_GROUP "
+					+ "WHERE StudyGroupID=? ";
+				
+			      PreparedStatement pstmt = conn.prepareStatement(sql);
+			      pstmt.clearParameters();
+			      pstmt.setInt(1, sgID);
+                  rs = pstmt.executeQuery();
+			
+		} catch (SQLException e) {
+			System.out.println("createStatement " + e.getMessage() + sql);
+		}
+		return rs;
+	}
 	
 
 	
