@@ -13,9 +13,12 @@
 
 <%@ include file="head.jsp" %>
 <h1>Handler For User Story Two</h1>
-<%
+<%	   
    ResultSet rs = myUtil.studentsInterested();
-%>
+   if(!rs.first())
+   { %>
+		There are no students interested in study groups
+<% } else {%>
 
 <table>
 <tr><th>Course Name</th> <th>Course ID</th> <th>Interested</th></tr>
@@ -26,6 +29,7 @@
  </tr>
 <%} %>
 </table>
+<% } %>
 
 
 </body>
