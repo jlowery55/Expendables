@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<%@ include file="head.jsp" %>
+<%@ include file="headStudent.jsp" %>
 
 <h1>Remaining Study Groups</h1>
 <% String[] studyGroup = request.getParameterValues("delete"); 
