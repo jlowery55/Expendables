@@ -15,7 +15,7 @@
    <jsp:forward page="openForm.jsp"></jsp:forward>
 <% } %>  
 
-<%@ include file="head.jsp" %>
+<%@ include file="headAdmin.jsp" %>
 
 <h1>Finds Students Interested In Joining Study Groups</h1>
 <% String user  = request.getParameter("ID"); 
