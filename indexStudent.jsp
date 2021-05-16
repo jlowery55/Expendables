@@ -8,13 +8,11 @@
 <link rel="stylesheet" href="myStyle.css">
 </head>
 <body>
-<%@ include file="head.jsp" %>
+<%@ include file="headStudent.jsp" %>
 <h1>Main Menu</h1>
 <ol>
  
-  <li> <a href = "openForm.jsp">Open with input values (userName, password)</a>  </li>
-  <li> <a href = "loginForm.jsp">Login</a>  </li>
-  <li> <a href = "userStoryThreeForm.jsp">Courses Tutorable by a Specific Admin</a> </li>
+  <li> <a href = "userStoryThreeFormStudent.jsp">Courses Tutorable by a Specific Admin</a> </li>
   <li> <a href = "userStoryFourForm.jsp">Leave a Study Group</a>  </li>
   <li> <a href = "userStoryFiveForm.jsp">Show Interest in Joining a Study Group</a>  </li>
   <li> <a href = "userStorySixForm.jsp">Join a Study Group</a>  </li>
