@@ -11,8 +11,13 @@
 <body>
 <%@ include file="head.jsp" %>
 <%String id = request.getParameter("ID"); %>
+
+<% if (myUtil.getConn()==null) { %>
+   <jsp:forward page="openForm.jsp"></jsp:forward>
+<% } %>
+
+<form action = "loginFormHandler.jsp" method ="get">
 <h1>Login Page</h1>
-<form action="userStoryFourForm.jsp" method="get">
 
 <p>Please enter your ID: </p>
 <input type="text" name="ID" value="<%=id %>" size="15" ><br><br>
@@ -20,23 +25,11 @@
 <p>Please enter your password: </p>
 <input type="password" name="pass" value="" size="30" ><br><br>
 
-<%
-
-//boolean inSystem = false;
-//if(myUtil.isAdmin(id)){
-	//navigate to only admin accessible 
-//	inSystem = true;
-//	%>
-<%//} if(myUtil.isStudent(id)){
-		//navigate to only student accessible
-//		inSystem = true;
-%>
-<%//} else 
-	//	inSystem = false;
-		%>
 
 <input type="submit" name="submit" value="Login" ><br><br>
 
 </form>
+
+
 </body>
 </html>
