@@ -16,19 +16,16 @@
    <jsp:forward page="openForm.jsp"></jsp:forward>
 <% } %>  
 
-<%@ include file="head.jsp" %>
+<%@ include file="headStudent.jsp" %>
 
-<%ResultSet rs = myUtil.studyGroups(); %>
+<%
+String id = (String)session.getAttribute("SES_ID");
+ResultSet rs = myUtil.studyGroups(); %>
 
 <h1>Form to Join a Study Group </h1>
 <form action="userStorySixHandler.jsp" method="get">
-Student ID: <br>
-<input type="text" name="studentID" value="" size="10"><br>
-
-<%	if(request.getParameter("invalid") == null)
-		out.print("");
-	else
-		out.print(request.getParameter("invalid")); %>
+Student ID: <%=id %><br>
+<input type="hidden" name="studentID" value=<%=id %>><br>
 
 <br>
 Select a Study Group: 
