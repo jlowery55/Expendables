@@ -15,6 +15,14 @@
 <h1>Handler For JoinStudyGroup</h1>
 <%	String studentID = request.getParameter("studentID");
 	String sgID = request.getParameter("sgID");
+	boolean boo = myUtil.getStudentID(studentID);
+	
+	if(!boo) { %>
+		<jsp:forward page = "userStorySixForm.jsp" >
+		<jsp:param name = "invalid" value = "Invalid Student ID, please try again" />
+		</jsp:forward>
+<%}
+	
 	int inserted = myUtil.joinStudyGroup(studentID, Integer.parseInt(sgID));
 	String output;
 	if(inserted == 1)
