@@ -25,6 +25,11 @@
 Student ID: <br>
 <input type="text" name="studentID" value="" size="10"><br>
 
+<%  if(request.getParameter("invalid") == null)
+		out.print("");
+	else 
+		out.print(request.getParameter("invalid")); %>
+
 <br>
 Select a Study Group: 
 <select name="courseID">
