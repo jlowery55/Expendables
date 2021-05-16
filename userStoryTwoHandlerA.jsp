@@ -11,18 +11,14 @@
 </head>
 <body>
 
-<%@ include file="head.jsp" %>
+<%@ include file="headAdmin.jsp" %>
 <h1>Handler For User Story Two</h1>
 <%	   
    ResultSet rs = myUtil.studentsInterestedAdmin();
-   if(!rs.first())
-   { %>
-	   There are no students interested in study groups
-<% } else {
 %>
 
 <table>
-<tr><th>Course Name</th> <th>Course ID</th> <th>First, Last</th></tr> 
+<tr><th>Course Name</th> <th>Course ID</th> <th>First, Last</th></tr>
 <%while (rs.next()) { %>
  <tr> <td><%= rs.getString(1) %> </td> 
       <td><%= rs.getString(2) %> </td> 
@@ -30,9 +26,6 @@
  </tr>
 <%} %>
 </table>
-<% } %>
-
-
 
 
 </body>
