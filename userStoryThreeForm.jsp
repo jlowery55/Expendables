@@ -12,15 +12,13 @@
 </head>
 
 <body> 
-<%String status="USER"; %>
+
 <% if (myUtil.getConn()==null) { %>
    <jsp:forward page="openForm.jsp"></jsp:forward>
 <% } %>  
-<%if (status=="ADMIN"){
-	%> <%@ include file="headAdmin.jsp"%>
-<%} else { if(status=="USER"){%>
-<%@ include file="head.jsp"%>
-<%}} %>
+
+<%@ include file="headAdmin.jsp"%>
+
 
 <h2> The List of Courses an Admin can Tutor</h2>
 
