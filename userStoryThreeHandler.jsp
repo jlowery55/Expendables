@@ -26,17 +26,28 @@ String last1 = request.getParameter("lname");
 ResultSet rs = myUtil.adminTutor(first1, last1);
 %>
 
+
+
 <table>
 
 <tr><th> Admin's Name</th> <th> Course Name </th>  <th> CourseID </th>
+
+
+
+
 <% while(rs.next()) { %>
+
 	<tr><td> <%= rs.getString(1) +  " " + rs.getString(2) %></td>
 	<td> <%= rs.getString(3)%></td>
 	<td> <%= rs.getString(4)%></td>
 	</tr>
+<% } %>
+
+<% if(myUtil.isAdmin(first1,last1) != true) { %>
+	<h2> The Admin Inputted is not in the Database.</h2>
+<% } %>
 
 
-<%} %>
 
 </table>
 
