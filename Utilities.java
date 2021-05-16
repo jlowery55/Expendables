@@ -421,6 +421,54 @@ public class Utilities {
 
         return rset;
     }
+	
+	/* 
+	 * 
+	* Helper method that selects all first names, and last name's from Admin, and determines if the name inputted is an Admin.
+	@param (String fname, String lname)
+	* (Written by Ashwin)
+	*/
+		
+	public boolean isAdmin(String fname, String lname)
+	{
+		ResultSet rset = null;
+		String sql = null;
+		boolean x = false;
+			
+		try {
+			sql = " SELECT fname, lname" +
+				" FROM ADMIN";
+						
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.clearParameters();
+			rset = pstmt.executeQuery();
+			String name1 = "";
+			String name2 = "";
+				
+			while(rset.next()) {
+				name1 = rset.getString("fname");
+				name2 = rset.getString("lname");
+					if(name1.equalsIgnoreCase(fname) && name2.equalsIgnoreCase(lname)) 
+					{
+						x = true;
+						break;
+					}
+					else if(name1 != fname || name2 != lname)
+					{
+						x = false;
+						continue;
+						
+					}
+				
+				}
+			} catch (SQLException e)
+			{
+				System.out.println("createStatement" + e.getMessage() + sql);
+			}
+					
+			
+			return x;
+		}
 
 	
 
