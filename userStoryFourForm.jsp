@@ -12,15 +12,12 @@
 <body>
 
 
-<%@ include file="head.jsp" %>
+<%@ include file="headStudent.jsp" %>
 
-<form action = "loginInForm.jsp" method = "get">
 
-<% String student = request.getParameter("ID"); 
-%> 
-
-</form>
-<%ResultSet rs = myUtil.getStudyGroups(student); %>
+<%
+String student = (String)session.getAttribute("SES_ID");
+ResultSet rs = myUtil.getStudyGroups(student); %>
 
 <h1>Leave a Study Group (4) </h1>
 <form action="UserStory4Handler.jsp" method="get">
