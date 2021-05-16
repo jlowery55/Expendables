@@ -16,7 +16,7 @@
    <jsp:forward page="openForm.jsp"></jsp:forward>
 <% } %>  
 
-<%@ include file="head.jsp" %>
+<%@ include file="headAdmin.jsp" %>
 
 <h1>Form for User Story 1</h1>
 <h2>User Story 1 is used to update a study group's meeting time</h2>
