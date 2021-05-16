@@ -8,15 +8,13 @@
 <link rel="stylesheet" href="myStyle.css">
 </head>
 <body>
-<%@ include file="head.jsp" %>
+<%@ include file="headAdmin.jsp" %>
 <h1>Main Menu</h1>
 <ol>
  
-  <li> <a href = "openForm.jsp">Open with input values (userName, password)</a>  </li>
-  <li> <a href = "loginForm.jsp">Login</a>  </li>
-  <li> <a href = "userStoryOneForm.jsp">Update A Study Group's Meeting Time</a>  </li>
-  <li> <a href = "userStoryTwoForm.jsp">Students Interested in a Study Group</a> </li>
-  <li> <a href = "userStoryThreeForm.jsp">Courses Tutorable by a Specific Admin</a> </li>
+  <li> <a href = "userStoryOneForm.jsp">Update A Study Group's Meeting Time (1)</a>  </li>
+  <li> <a href = "userStoryTwoForm.jsp">Students Interested in a Study Group (2)</a> </li>
+  <li> <a href = "userStoryThreeForm.jsp">Courses Tutorable by a Specific Admin (3)</a> </li>
   <li> <a href = "close.jsp"> Close the DB </a> </li>
 </ol>
 
