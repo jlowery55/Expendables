@@ -16,7 +16,7 @@
    <jsp:forward page="openForm.jsp"></jsp:forward>
 <% } %>  
 
-<%@ include file="head.jsp" %>
+<%@ include file="headAdmin.jsp" %>
 <h1>Handler For User Story 1</h1>
 <% String meetingTime = request.getParameter("meetingTime");
    String courseID = request.getParameter("courseID");
