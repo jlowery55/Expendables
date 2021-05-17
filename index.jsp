@@ -12,7 +12,7 @@
 <h1>Main Menu</h1>
 <ol>
  
-  <li> <a href = "openForm.jsp">Open with input values (userName, password)</a>  </li>
+  <li> <a href = "openForm.jsp">Open the DB</a>  </li>
   <li> <a href = "loginForm.jsp">Login</a>  </li>
   <li> <a href = "close.jsp"> Close the DB </a> </li>
 </ol>
