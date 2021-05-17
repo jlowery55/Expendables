@@ -16,16 +16,14 @@
    <jsp:forward page="openForm.jsp"></jsp:forward>
 <% } %>  
 
-<%@ include file="headStudent.jsp" %>
+<%@ include file="head.jsp" %>
 
-<%
-String id = (String)session.getAttribute("SES_ID");
-ResultSet rs = myUtil.studyGroups(); %>
+<%ResultSet rs = myUtil.studyGroups(); %>
 
 <h1>Form to Show Interest in a Study Group </h1>
 <form action="userStoryFiveHandler.jsp" method="get">
-Student ID: <%=id %><br>
-<input type="hidden" name="studentID" value=<%=id %>><br>
+Student ID: <br>
+<input type="text" name="studentID" value="" size="10"><br>
 
 <br>
 Select a Study Group: 
