@@ -11,17 +11,25 @@
 </head>
 <body>
 
-<%@ include file="head.jsp" %>
+<%@ include file="headLogin.jsp" %>
 <h1>Handler For Login</h1>
 <%	String user = request.getParameter("ID"); 
 	session.setAttribute("SES_ID", user); 
+	String pass = request.getParameter("pass");
+	boolean adBool=myUtil.isAdmin(user);
+	boolean stuBool=myUtil.isStudent(user);
+	
+if(myUtil.checkPassword(adBool,stuBool,user,pass)==false){ %>
+You are a student. 
+<jsp:forward page= "loginForm.jsp"></jsp:forward>
 
+<%} %>
 
-if(myUtil.isAdmin(user)){%>
+<%if(adBool){%>
 You are an administrator.
 <jsp:forward page= "indexAdmin.jsp"></jsp:forward>
 <%} %>
-<%if(myUtil.isStudent(user)){ %>
+<%if(stuBool){ %>
 You are a student. 
 <jsp:forward page= "indexStudent.jsp"></jsp:forward>
 
