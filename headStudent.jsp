@@ -1,23 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Expendables </title>
-<link rel="stylesheet" href="myStyle.css">
-</head>
-<body>
-<%@ include file="headStudent.jsp" %>
-<h1>Main Menu</h1>
-<ol>
- 
-  <li> <a href = "userStoryThreeFormStudent.jsp">Courses Tutorable by a Specific Admin</a> </li>
-  <li> <a href = "userStoryFourForm.jsp">Leave a Study Group</a>  </li>
-  <li> <a href = "userStoryFiveForm.jsp">Show Interest in Joining a Study Group</a>  </li>
-  <li> <a href = "userStorySixForm.jsp">Join a Study Group</a>  </li>
-  <li> <a href = "close.jsp"> Close the DB </a> </li>
-</ol>
-
-</body>
-</html>
+<table class="center">
+ <tr>
+  <th><a href="indexStudent.jsp">Student Home</a></th>
+  <th> <a href = "userStoryThreeFormStudent.jsp">User Story 3 </a>  </th>
+  <th> <a href = "userStoryFourForm.jsp">User Story 4 </a> </th>
+  <th> <a href = "userStoryFiveForm.jsp">User Story 5 </a>  </th>
+  <th> <a href = "userStorySixForm.jsp">User Story 6 </a>  </th>
+  <th> <a href = "close.jsp"> Close the DB </a> </th>
+  </tr>
+ </table>
+ <hr>
