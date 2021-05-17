@@ -469,8 +469,129 @@ public class Utilities {
 			
 			return x;
 		}
-
 	
+	
+    //Helper method to check passwords (written by Joey)
+	public boolean checkPassword(boolean inAdmin, boolean inStudent, String inputID, String password) {
+		boolean bo=false;
+		String sql = null;
+		if(inAdmin) {
+		 try {
+
+	            sql = "SELECT ID "
+	            	+ "FROM ADMIN "
+	            	+ "WHERE ID=? AND Password=sha2(?, 224)";
+	            PreparedStatement pstmt = conn.prepareStatement(sql);
+
+	            pstmt.clearParameters();
+	            pstmt.setString(1, inputID);
+	            pstmt.setString(2, password);;
+	            ResultSet rs=pstmt.executeQuery();
+	            String idCounter;
+	            
+	            	while(rs.next()){
+	            		idCounter = rs.getString("ID");
+	            		if( idCounter.equals(inputID)) {
+	            			bo=true;
+	            		}
+	            	}
+	            
+	            
+
+	        } catch (SQLException e) {
+	            System.out.println("createStatement " + e.getMessage() + sql);
+	   	 }
+		
+		}
+		if(inStudent) {
+			 try {
+
+		            sql = "SELECT ID "
+		            	+ "FROM STUDENTS "
+		            	+ "WHERE ID=? AND Password=sha2(?, 224)";
+		            PreparedStatement pstmt = conn.prepareStatement(sql);
+
+		            pstmt.clearParameters();
+		            pstmt.setString(1, inputID);
+		            pstmt.setString(2, password);
+		            ResultSet rs=pstmt.executeQuery();
+		            String idCounter;
+		            
+		            	while(rs.next()){
+		            		idCounter = rs.getString("ID");
+		            		if( idCounter.equals(inputID)) {
+		            			bo=true;
+		            		}
+		            	}
+		            
+		            
+
+		        } catch (SQLException e) {
+		            System.out.println("createStatement " + e.getMessage() + sql);
+		   	 }
+			
+			}
+		return bo;
+	}
+	
+	
+	//Helper method to get all Student IDs (written by Travis)
+    public boolean isStudent(String inputID) {
+        boolean boo = false;
+        String sql = null;
+
+        try {
+            sql = "SELECT ID " +
+                  "FROM STUDENTS ";
+
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+
+            pstmt.clearParameters();
+            ResultSet rs = pstmt.executeQuery();
+
+            String idCounter;
+            while(rs.next()) {
+                idCounter = rs.getString("ID");
+
+                if(idCounter.equals(inputID))
+                    boo = true;
+            }
+        } catch (SQLException e) {
+            System.out.println("problem with getStudentID " + e.getMessage() + sql);
+        }
+        return boo;
+    }
+	
+	
+	//Helper method to get all Admin IDs and check if the current ID is an admin's (Written by Joey)
+	public boolean isAdmin(String inputID) {
+		boolean bo=false;
+		String sql = null;
+		 try {
+
+	            sql = "SELECT ID "
+	            	+ "FROM ADMIN ";
+	            PreparedStatement pstmt = conn.prepareStatement(sql);
+
+	            pstmt.clearParameters();
+	            ResultSet rs=pstmt.executeQuery();
+	            String idCounter;
+	            	while(rs.next()){
+	            		idCounter = rs.getString("ID");
+	            		if( idCounter.equals(inputID)) {
+	            			bo=true;
+	            		}
+	            	}
+	            
+	            
+
+	        } catch (SQLException e) {
+	            System.out.println("createStatement " + e.getMessage() + sql);
+	   	 }
+		
+		
+		return bo;
+	}
 
 	
 
