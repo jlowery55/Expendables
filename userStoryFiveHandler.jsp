@@ -11,10 +11,16 @@
 </head>
 <body>
 
-<%@ include file="headStudent.jsp" %>
+<%@ include file="head.jsp" %>
 <h1>Handler For ShowInterest</h1>
 <%	String studentID = request.getParameter("studentID");
 	String courseID = request.getParameter("courseID");
+	boolean boo = myUtil.getStudentID(studentID);
+	
+	if(!boo) { %>
+		<jsp:forward page = "userStoryFiveForm.jsp" />
+  <%}
+	
 	int inserted = myUtil.showInterest(studentID, courseID);
 	String output;
 	if(inserted == 1)
