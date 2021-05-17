@@ -22,10 +22,7 @@
 
 <h1>Form to Join a Study Group </h1>
 <form action="userStorySixHandler.jsp" method="get">
-Student ID: <br>
-<input type="text" name="studentID" value="" size="10"><br>
 
-<br>
 Select a Study Group: 
 <select name="sgID">
 	<%while (rs.next()) { %>
