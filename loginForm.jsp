@@ -10,7 +10,6 @@
 </head>
 <body>
 <%@ include file="headLogin.jsp" %>
-<%String id = request.getParameter("ID"); %>
 
 <% if (myUtil.getConn()==null) { %>
    <jsp:forward page="openForm.jsp"></jsp:forward>
@@ -21,6 +20,7 @@
 
 <p>Please enter your ID: </p>
 <input type="text" name="ID" value="<%=id %>" size="15" required><br><br>
+   <%String id = request.getParameter("ID"); %>
 
 <p>Please enter your password: </p>
 <input type="password" name="pass" value="" size="30" required><br><br>
