@@ -134,28 +134,6 @@ public class Utilities {
 		return rset;
 	}//studentsInterested
 	
-	public ResultSet studentsInterestedAdmin() 
-	{
-		ResultSet rset = null;
-		String sql = null;
-
-		try {
-			//create a SQL string for the statement
-			Statement stmt = conn.createStatement();
-			sql = "SELECT C.CourseName, I.CourseID, Fname, Lname " + 
-				"FROM COURSE AS C, INTERESTED_IN AS I, STUDENTS AS S " + 
-				"WHERE I.StudentID = S.ID AND C.CourseID = I.CourseID " +
-				 "ORDER BY C.CourseName";
-				
-			rset = stmt.executeQuery(sql);
-
-		} catch (SQLException e) {
-			System.out.println("Problem with studentsInterestedAdmin " + e.getMessage() + sql);
-		}
-
-		return rset;
-	}//studentsInterested
-	
 	
 	
 	/**
@@ -564,6 +542,27 @@ public class Utilities {
 		return bo;
 	}
 
+	public ResultSet studentsInterestedAdmin() 
+	{
+		ResultSet rset = null;
+		String sql = null;
+
+		try {
+			//create a SQL string for the statement
+			Statement stmt = conn.createStatement();
+			sql = "SELECT C.CourseName, I.CourseID, Fname, Lname " + 
+				"FROM COURSE AS C, INTERESTED_IN AS I, STUDENTS AS S " + 
+				"WHERE I.StudentID = S.ID AND C.CourseID = I.CourseID " +
+				 "ORDER BY C.CourseName";
+				
+			rset = stmt.executeQuery(sql);
+
+		} catch (SQLException e) {
+			System.out.println("Problem with studentsInterestedAdmin " + e.getMessage() + sql);
+		}
+
+		return rset;
+	}//studentsInterested
 	
 
 }// Utilities class
