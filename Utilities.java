@@ -98,7 +98,7 @@ public class Utilities {
 
             result= pstmt.executeUpdate();
         } catch (SQLException e) {
-            System.out.println("createStatement " + e.getMessage() + sql);
+            System.out.println("Problem with updateStudyGroupTime " + e.getMessage() + sql);
    	 }
         	return result;
    	 }
@@ -128,7 +128,7 @@ public class Utilities {
 			rset = stmt.executeQuery(sql);
 			
 		} catch (SQLException e) {
-			System.out.println("createStatement " + e.getMessage() + sql);
+			System.out.println("Problem with studentsInterested " + e.getMessage() + sql);
 		}
 
 		return rset;
@@ -150,7 +150,7 @@ public class Utilities {
 			rset = stmt.executeQuery(sql);
 
 		} catch (SQLException e) {
-			System.out.println("createStatement " + e.getMessage() + sql);
+			System.out.println("Problem with studentsInterestedAdmin " + e.getMessage() + sql);
 		}
 
 		return rset;
@@ -269,7 +269,7 @@ public class Utilities {
 			num = pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
-			System.out.println("createStatement" + e.getMessage() + sql);
+			System.out.println("Problem with showInterest" + e.getMessage() + sql);
 		}
 		
 		return num;
@@ -301,7 +301,7 @@ public class Utilities {
 			
 			num = pstmt.executeUpdate();
 		} catch (SQLException e) {
-			System.out.println("createStatement" + e.getMessage() + sql);
+			System.out.println("Problem with joinStudyGroup" + e.getMessage() + sql);
 		}
 		
 		return num;
@@ -345,39 +345,10 @@ public class Utilities {
 			pstmt.setString(2, StudentID);
 			rs = pstmt.executeQuery();
 		} catch (SQLException e) {
-			System.out.println("createStatement" + e.getMessage() + sql);
+			System.out.println("Problem with getStudyGroups" + e.getMessage() + sql);
 		}
 		
 		return rs;
-	}
-	//Helper method to get all Admin IDs  (Written by Joey)
-	public boolean getAdminID(String inputID) {
-		boolean bo=false;
-		String sql = null;
-		 try {
-
-	            sql = "SELECT ID "
-	            	+ "FROM ADMIN ";
-	            PreparedStatement pstmt = conn.prepareStatement(sql);
-
-	            pstmt.clearParameters();
-	            ResultSet rs=pstmt.executeQuery();
-	            String idCounter;
-	            	if(rs.next()){
-	            		idCounter = rs.getString("ID");
-	            		if( idCounter.equals(inputID)) {
-	            			bo=true;
-	            		}
-	            	}
-	            
-	            
-
-	        } catch (SQLException e) {
-	            System.out.println("createStatement " + e.getMessage() + sql);
-	   	 }
-		
-		
-		return bo;
 	}
 	
 	//Helper Method to Display Study Group Times (Written by Joey)
@@ -396,7 +367,7 @@ public class Utilities {
                   rs = pstmt.executeQuery();
 			
 		} catch (SQLException e) {
-			System.out.println("createStatement " + e.getMessage() + sql);
+			System.out.println("Problem with displaySGInfo " + e.getMessage() + sql);
 		}
 		return rs;
 	}
@@ -463,7 +434,7 @@ public class Utilities {
 				}
 			} catch (SQLException e)
 			{
-				System.out.println("createStatement" + e.getMessage() + sql);
+				System.out.println("Problem with isAdmin(fname,lname)" + e.getMessage() + sql);
 			}
 					
 			
@@ -499,7 +470,7 @@ public class Utilities {
 	            
 
 	        } catch (SQLException e) {
-	            System.out.println("createStatement " + e.getMessage() + sql);
+	            System.out.println("Problem with checkPassword " + e.getMessage() + sql);
 	   	 }
 		
 		}
@@ -527,7 +498,7 @@ public class Utilities {
 		            
 
 		        } catch (SQLException e) {
-		            System.out.println("createStatement " + e.getMessage() + sql);
+		            System.out.println("Problem with checkPassword " + e.getMessage() + sql);
 		   	 }
 			
 			}
@@ -557,7 +528,7 @@ public class Utilities {
                     boo = true;
             }
         } catch (SQLException e) {
-            System.out.println("problem with getStudentID " + e.getMessage() + sql);
+            System.out.println("Problem with getStudentID " + e.getMessage() + sql);
         }
         return boo;
     }
@@ -586,7 +557,7 @@ public class Utilities {
 	            
 
 	        } catch (SQLException e) {
-	            System.out.println("createStatement " + e.getMessage() + sql);
+	            System.out.println("Problem with isAdmin(inputID) " + e.getMessage() + sql);
 	   	 }
 		
 		
