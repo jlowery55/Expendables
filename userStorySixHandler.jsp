@@ -13,7 +13,7 @@
 
 <%@ include file="head.jsp" %>
 <h1>Handler For JoinStudyGroup</h1>
-<%	String studentID = request.getParameter("studentID");
+<%	String studentID = (String)session.getAttribute("SES_ID");
 	String sgID = request.getParameter("sgID");
 	int inserted = myUtil.joinStudyGroup(studentID, Integer.parseInt(sgID));
 	String output;
