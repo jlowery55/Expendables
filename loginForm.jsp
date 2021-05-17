@@ -9,7 +9,8 @@
 <link rel="stylesheet" href="myStyle.css">
 </head>
 <body>
-<%@ include file="headLogin.jsp" %>
+<%@ include file="head.jsp" %>
+
 
 <% if (myUtil.getConn()==null) { %>
    <jsp:forward page="openForm.jsp"></jsp:forward>
@@ -19,16 +20,13 @@
 <h1>Login Page</h1>
 
 <p>Please enter your ID: </p>
-<input type="text" name="ID" value="<%=id %>" size="15" required><br><br>
-   <%String id = request.getParameter("ID"); %>
-
+<input type="text" name="ID" value="" size="15" required><br>
+<%String id = request.getParameter("ID"); %>
 <p>Please enter your password: </p>
-<input type="password" name="pass" value="" size="30" required><br><br>
+<input type="password" name="pass" value="" size="30" required><br>
 
 
 <input type="submit" name="submit" value="Login" ><br><br>
-
-
 
 </form>
 
