@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<%@ include file="headStudent.jsp" %>
+<%@ include file="head.jsp" %>
 <h1>Handler For JoinStudyGroup</h1>
 <%	String studentID = request.getParameter("studentID");
 	String sgID = request.getParameter("sgID");
