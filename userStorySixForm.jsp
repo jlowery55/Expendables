@@ -16,7 +16,7 @@
    <jsp:forward page="openForm.jsp"></jsp:forward>
 <% } %>  
 
-<%@ include file="head.jsp" %>
+<%@ include file="headStudent.jsp" %>
 
 <%ResultSet rs = myUtil.studyGroups(); %>
 
