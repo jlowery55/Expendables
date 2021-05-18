@@ -57,6 +57,24 @@ public class Utilities {
 		}
 	}
 	
+	public void openDB2(String username, String password, String location) {
+
+        String url;
+
+        if(location.equals("on"))
+            url = "jdbc:mariadb://mal.cs.plu.edu:3306/ex367_2021?user="+ username +"&password="+password;
+        else
+            url = "jdbc:mariadb://localhost:2000/ex367_2021?user=" + username + "&password=" + password;
+
+        try {
+            conn = DriverManager.getConnection(url);
+        } catch (SQLException e) {
+            System.out.println("using url: " + url);
+            System.out.println("problem connecting to MariaDB: " + e.getMessage());
+            //e.printStackTrace();
+        }
+    }
+	
 	/**
 	 * Close the connection to the DB
 	 */
