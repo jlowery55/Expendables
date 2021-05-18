@@ -18,7 +18,7 @@
 <%@ include file="headAdmin.jsp" %>
 
 <h1>Finds Students Interested In Joining Study Groups</h1>
-<form action= "userStoryTwoHandlerA.jsp" method ="get">
+<form action= "userStoryTwoHandlerA.jsp" method ="post">
 
 <%
 String student = (String)session.getAttribute("SES_ID");%>
