@@ -21,7 +21,7 @@
 <%ResultSet rs = myUtil.studyGroups(); %>
 
 <h1>Form to Join a Study Group </h1>
-<form action="userStorySixHandler.jsp" method="get">
+<form action="userStorySixHandler.jsp" method="post">
 
 Select a Study Group: 
 <select name="sgID">
