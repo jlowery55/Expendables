@@ -15,6 +15,10 @@
 <h1>Handler For User Story Two</h1>
 <%	   
    ResultSet rs = myUtil.studentsInterestedAdmin();
+   if(!rs.first())
+   { %>
+	   There are no students interested in study groups
+<% } else {
 %>
 
 <table>
@@ -26,6 +30,7 @@
  </tr>
 <%} %>
 </table>
+<% } %> 
 
 
 </body>
