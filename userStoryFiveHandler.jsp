@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<%@ include file="head.jsp" %>
+<%@ include file="headStudent.jsp" %>
 <h1>Handler For ShowInterest</h1>
 <%	String studentID = (String)session.getAttribute("SES_ID");
 	String courseID = request.getParameter("courseID");
