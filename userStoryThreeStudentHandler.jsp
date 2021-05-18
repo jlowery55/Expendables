@@ -37,6 +37,10 @@ ResultSet rs = myUtil.adminTutor(first1, last1);
 
 
 <%} %>
+	
+<% if(myUtil.isAdmin(first1,last1) != true) { %>
+    <h2> The Admin Inputted is not in the Database.</h2>
+<% } %>
 
 </table>
 
