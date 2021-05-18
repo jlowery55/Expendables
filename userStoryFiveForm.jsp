@@ -18,7 +18,7 @@
 
 <%@ include file="head.jsp" %>
 
-<%String id = (String)session.getAttribute("SES_ID");
+<%
 ResultSet rs = myUtil.studyGroups(); %>
 
 <h1>Form to Show Interest in a Study Group </h1>
