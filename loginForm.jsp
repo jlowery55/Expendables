@@ -16,7 +16,7 @@
    <jsp:forward page="openForm.jsp"></jsp:forward>
 <% } %>
 
-<form action = "loginFormHandler.jsp" method ="get">
+<form action = "loginFormHandler.jsp" method ="post">
 <h1>Login Page</h1>
 
 <p>Please enter your ID: </p>
