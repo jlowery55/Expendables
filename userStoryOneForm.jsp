@@ -18,8 +18,7 @@
 
 <%@ include file="headAdmin.jsp" %>
 
-<h1>Form for User Story 1</h1>
-<h2>User Story 1 is used to update a study group's meeting time</h2>
+<h1>Update a study group's meeting time</h1>
 <form action="userStoryOneHandler.jsp" method="post">
 Please Input the new meeting time, Course ID, and study group ID<br>
 	Meeting Time in the format: "HH:MM:SS" <br>
