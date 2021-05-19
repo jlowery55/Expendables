@@ -20,7 +20,17 @@
 <h1>Updated Study Group</h1>
 <% String checker;
    String meetingTime = request.getParameter("meetingTime");
+   if(meetingTime.isEmpty()){
+	   checker = "Meeting Time is empty, please input a value";
+   session.setAttribute("SES_CHECK", checker);%>
+   <jsp:forward page="userStoryOneForm.jsp"></jsp:forward>
+   <%}
    String courseID = request.getParameter("courseID");
+   if(courseID.isEmpty()){
+	   checker = "Course ID is empty, please input a value";
+   session.setAttribute("SES_CHECK", checker);%>
+   <jsp:forward page="userStoryOneForm.jsp"></jsp:forward>
+   <%}
    String sgID = request.getParameter("studyGroupID");
    if(sgID.isEmpty()){
 	   checker = "Study Group ID is empty, please input a value";
