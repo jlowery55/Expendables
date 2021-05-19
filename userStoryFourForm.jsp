@@ -20,7 +20,7 @@ String student = (String)session.getAttribute("SES_ID");
 ResultSet rs = myUtil.getStudyGroups(student); %>
 
 <h1>Leave a Study Group (4) </h1>
-<form action="UserStory4Handler.jsp" method="get">
+<form action="UserStory4Handler.jsp" method="post">
 
 <p></p>
 Student ID: <%=student %>
