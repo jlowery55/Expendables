@@ -18,10 +18,7 @@
 	String studentID = request.getParameter("studentID2");
    
 	//get number of study groups selected
-	//print studentID
-	System.out.println(studentID);
 	int numSG = studyGroup.length; 
-	//System.out.println(numSG); 
 	int sgID =0;
 	int numLeft =0;
 	//new sgArray
@@ -44,12 +41,14 @@
 	
 	//get remaining groups student is in 
 	
-	ResultSet remaining = myUtil.getStudyGroups(studentID);
-	
-%> 
+	ResultSet remaining = myUtil.getStudyGroups(studentID);%>
+	The number of study groups student has deleted: <%=numLeft %>. 
+	<p></p>
 
-The number of study groups student has deleted: <%=numLeft %>. 
-<p></p>
+<% if(!remaining.next()){ %>
+	You are not in any more study groups. 
+	<%} else{
+	remaining.beforeFirst();%>
 Remaining Study Groups:
 <p></p>
 <table>
@@ -61,13 +60,10 @@ Remaining Study Groups:
       <td><%= remaining.getString(4) %> </td> 
       <td><%= remaining.getString(5) %> </td> 
       <td><%= remaining.getString(6) + " " + remaining.getString(7) %> </td> 
-      
+
  </tr>
 <%} %>
 </table>
-
-<%if(!remaining.next()){ %>
-	You are not in any more study groups. 
 <%} %>
 
 
