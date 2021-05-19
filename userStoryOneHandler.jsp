@@ -17,14 +17,40 @@
 <% } %>  
 
 <%@ include file="headAdmin.jsp" %>
-<h1>Handler For User Story 1</h1>
-<% String meetingTime = request.getParameter("meetingTime");
+<h1>Updated Study Group</h1>
+<% String checker;
+   String meetingTime = request.getParameter("meetingTime");
    String courseID = request.getParameter("courseID");
    String sgID = request.getParameter("studyGroupID");
-   		int sgID2 = Integer.parseInt(sgID);
+   if(sgID.isEmpty()){
+	   checker = "Study Group ID is empty, please input a value";
+   session.setAttribute("SES_CHECK", checker);%>
+   <jsp:forward page="userStoryOneForm.jsp"></jsp:forward>
+   <%}
+   		int sgID2=0;
+   		try{
+   			sgID2 = Integer.parseInt(sgID);
+   		}catch(Exception e){
+   			checker="Study Group ID must be an Integer besides 0";
+   		   session.setAttribute("SES_CHECK", checker);
+   		%><jsp:forward page="userStoryOneForm.jsp"></jsp:forward>
+   		<%}
+   		if(sgID2==0){
+   		   checker="Study Group ID must not be an Integer besides 0";
+   		   session.setAttribute("SES_CHECK", checker); 
+   	   }
    int result = myUtil.updateStudyGroupTime(meetingTime,courseID,sgID2);
-   out.println("Number of updated meeting times: "+ result);
-   ResultSet rset=myUtil.displaySGInfo(sgID2);
+   if(result==1){
+	   checker="";
+	   session.setAttribute("SES_CHECK", checker); 
+	   out.println("You updated the meeting time for group " + sgID);
+   }
+   else{
+   checker = "There was an error, please check if your inputs are valid";
+   session.setAttribute("SES_CHECK", checker); %>
+	   <jsp:forward page="userStoryOneForm.jsp"></jsp:forward>
+   <%} %>
+   <% ResultSet rset=myUtil.displaySGInfo(sgID2);
 %>
 
 <table>
