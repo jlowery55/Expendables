@@ -19,8 +19,12 @@
 <%@ include file="headAdmin.jsp" %>
 
 <h1>Update a study group's meeting time</h1>
+<%String errorcheck = (String)session.getAttribute("SES_CHECK"); %>
+<%if(errorcheck!=null){
+	out.println(errorcheck);
+}%>
 <form action="userStoryOneHandler.jsp" method="post">
-Please Input the new meeting time, Course ID, and study group ID<br>
+<br>Please Input the new meeting time, Course ID, and study group ID<br>
 	Meeting Time in the format: "HH:MM:SS" <br>
 	<input type="text" id="meetingTime" name ="meetingTime"><br>
 	Course ID: <br>
