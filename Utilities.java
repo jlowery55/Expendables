@@ -195,7 +195,7 @@ public class Utilities {
 				rset = pstmt.executeQuery();
 			} catch (SQLException e)
 			{
-				System.out.println("createStatement" + e.getMessage());
+				System.out.println("Problem adminTutor " + e.getMessage());
 				System.out.println("sql" + sql);
 			}
 			
@@ -230,7 +230,7 @@ public class Utilities {
 			pstmt.setInt(2, sGNum);
 			leaveNum = pstmt.executeUpdate();
 		} catch (SQLException e) {
-				System.out.println("createStatement " + e.getMessage());
+				System.out.println("Problem with leaveStudyGroup " + e.getMessage());
 				System.out.println("sql:" + sql);
 		}
 		
@@ -383,7 +383,7 @@ public class Utilities {
             Statement stmt = conn.createStatement();
             rset = stmt.executeQuery(sql);
         } catch (SQLException e) {
-            System.out.println("problem with studyGroups()" + e.getMessage() + sql);
+            System.out.println("Problem with studyGroups()" + e.getMessage() + sql);
         }
 
         return rset;
