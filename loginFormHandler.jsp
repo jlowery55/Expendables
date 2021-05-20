@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<%@ include file="headLogin.jsp" %>
+<%@ include file="head.jsp" %>
 <h1>Handler For Login</h1>
 <%	String user = request.getParameter("ID"); 
 	session.setAttribute("SES_ID", user); 
