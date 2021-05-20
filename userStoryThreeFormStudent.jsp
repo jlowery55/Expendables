@@ -21,7 +21,7 @@
 
 <h2> The List of Courses an Admin can Tutor</h2>
 
-<form action = "userStoryThreeHandlerStudent.jsp" method = "post"> 
+<form action = "userStoryThreeStudentHandler.jsp" method = "post"> 
 
 Input an Admin's First Name and Last Name. <br>
 <br>
