@@ -12,7 +12,7 @@
 <body>
 
 <%@ include file="headStudent.jsp" %>
-<h1>Handler For JoinStudyGroup</h1>
+<h1>Joined Study Group</h1>
 <%	String studentID = (String)session.getAttribute("SES_ID");
 	String sgID = request.getParameter("sgID");
 	int inserted = myUtil.joinStudyGroup(studentID, Integer.parseInt(sgID));
