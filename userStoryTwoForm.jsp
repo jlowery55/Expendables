@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Form For User Story Two</title>
+<title>Finds Students Interested In Joining Study Groups</title>
 <link rel="stylesheet" href="myStyle.css">
 </head>
 <body>
