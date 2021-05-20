@@ -6,13 +6,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Handler for User Story Two</title>
+<title>Students Interested In Joining A Study Group</title>
 <link rel="stylesheet" href="myStyle.css">
 </head>
 <body>
 
 <%@ include file="headAdmin.jsp" %>
-<h1>Handler For User Story Two</h1>
+<h1>Students Interested In Joining A Study Group</h1>
 <%	   
    ResultSet rs = myUtil.studentsInterestedAdmin();
    if(!rs.first())
