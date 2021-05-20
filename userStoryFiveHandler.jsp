@@ -6,13 +6,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Handler Title</title>
+<title>Handler for User Story 5</title>
 <link rel="stylesheet" href="myStyle.css">
 </head>
 <body>
 
 <%@ include file="headStudent.jsp" %>
-<h1>Handler For ShowInterest</h1>
+<h1>Updated Interest Roster</h1>
 <%	String studentID = (String)session.getAttribute("SES_ID");
 	String courseID = request.getParameter("courseID");
 	int inserted = myUtil.showInterest(studentID, courseID);
