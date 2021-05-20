@@ -22,11 +22,11 @@
 %>
 
 <table>
-<tr><th>Course Name</th> <th>Course ID</th> <th>First, Last</th></tr>
+<tr><th>Course Name</th> <th>Course ID</th> <th>Student Name</th></tr>
 <%while (rs.next()) { %>
  <tr> <td><%= rs.getString(1) %> </td> 
       <td><%= rs.getString(2) %> </td> 
-      <td><%= rs.getString(3) + ", " + rs.getString(4) %> </td>
+      <td><%= rs.getString(3) + " " + rs.getString(4) %> </td>
  </tr>
 <%} %>
 </table>
