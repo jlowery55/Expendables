@@ -21,7 +21,7 @@
 <%
 ResultSet rs = myUtil.studyGroups(); %>
 
-<h1>Form to Show Interest in a Study Group </h1>
+<h1>Show Interest in a Study Group </h1>
 <form action="userStoryFiveHandler.jsp" method="post">
 
 Select a Study Group: 
